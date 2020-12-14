@@ -1,0 +1,9 @@
+
+.App {
+  background-color: #D1D0D9;
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
