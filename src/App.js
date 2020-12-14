@@ -11,7 +11,8 @@ function App() {
       <Card>
         <ProgressBar />
         <div>
-          Tasks and <Dropdown />
+          Tasks
+          <Dropdown />
         </div>
         <Task />
         <Task />
