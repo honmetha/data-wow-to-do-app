@@ -9,7 +9,7 @@ const AddTodoInput = () => {
         padding: "10px",
       }}
     >
-      Add to do...
+      <input placeholder="Add to do..." />
     </div>
   );
 };

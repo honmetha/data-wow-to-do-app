@@ -22,11 +22,10 @@ const Dropdown = () => {
         className="dropdown-content"
         style={{ display: display ? "" : "none" }}
       >
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <a href="#all">All</a>
+        <a href="#done">Done</a>
+        <a href="#undone">Undone</a>
       </div>
-      Dropdown
     </div>
   );
 };

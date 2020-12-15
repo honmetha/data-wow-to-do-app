@@ -17,21 +17,21 @@ const styles = {
   progressing: {
     backgroundColor: "white",
     height: "7.5px",
-    width: "50%",
     borderRadius: "999px",
   },
 };
 
-const ProgressBar = () => {
+const ProgressBar = ({ completedTasks, todos }) => {
+  const widthPercentage = (100 * completedTasks) / todos.length + "%";
   return (
     <div style={styles.component}>
       <div style={{ fontSize: "25px", marginBottom: "0.5rem" }}>
         <strong>Progress</strong>
       </div>
       <div style={styles.progressBar}>
-        <div style={styles.progressing}></div>
+        <div style={{ ...styles.progressing, width: widthPercentage }}></div>
       </div>
-      <div style={{ fontSize: "16px" }}>12 completed</div>
+      <div style={{ fontSize: "16px" }}>{completedTasks} completed</div>
     </div>
   );
 };

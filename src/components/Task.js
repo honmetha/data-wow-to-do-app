@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Task = () => {
+const Task = ({ todo, index, completeTodo }) => {
+  const [check, setCheck] = useState(todo.isCompleted);
+
+  const handleChange = () => {
+    setCheck(!check);
+    completeTodo(index);
+  };
+
   return (
     <div
       style={{
@@ -9,7 +16,14 @@ const Task = () => {
         padding: "10px",
       }}
     >
-      Check box + To do list + Options
+      <label className="container">
+        <input type="checkbox" onChange={handleChange} checked={check} />
+        <span className="checkmark"></span>
+      </label>
+      <span style={{ textDecoration: check ? "line-through" : "" }}>
+        {todo.text}
+      </span>{" "}
+      + ellipsis
     </div>
   );
 };
