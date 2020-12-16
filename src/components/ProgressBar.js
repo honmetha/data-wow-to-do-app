@@ -21,8 +21,8 @@ const styles = {
   },
 };
 
-const ProgressBar = ({ completedTasks, todos }) => {
-  const widthPercentage = (100 * completedTasks) / todos.length + "%";
+const ProgressBar = ({ completedCount, todos }) => {
+  const widthPercentage = (100 * completedCount) / todos.length + "%";
   return (
     <div style={styles.component}>
       <div style={{ fontSize: "25px", marginBottom: "0.5rem" }}>
@@ -31,7 +31,7 @@ const ProgressBar = ({ completedTasks, todos }) => {
       <div style={styles.progressBar}>
         <div style={{ ...styles.progressing, width: widthPercentage }}></div>
       </div>
-      <div style={{ fontSize: "16px" }}>{completedTasks} completed</div>
+      <div style={{ fontSize: "16px" }}>{completedCount} completed</div>
     </div>
   );
 };

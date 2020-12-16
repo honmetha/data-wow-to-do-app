@@ -1,13 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
 const Task = ({ todo, index, editTodo, completeTodo, removeTodo }) => {
-  const [check, setCheck] = useState(todo.isCompleted);
-
-  const handleChange = () => {
-    setCheck(!check);
-    completeTodo(index);
-  };
-
   return (
     <div
       style={{
@@ -18,10 +11,10 @@ const Task = ({ todo, index, editTodo, completeTodo, removeTodo }) => {
       }}
     >
       <label className="container">
-        <input type="checkbox" onChange={handleChange} checked={check} />
+        <input type="checkbox" onChange={() => completeTodo(index)} checked={todo.isCompleted} />
         <span className="checkmark"></span>
       </label>
-      <span style={{ textDecoration: check ? "line-through" : "" }}>
+      <span style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}>
         {todo.text}
       </span>{" "}
       <button>edit</button>

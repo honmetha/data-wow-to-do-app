@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./App.css";
 import Card from "./components/Card";
 import ProgressBar from "./components/ProgressBar";
@@ -21,15 +21,6 @@ function App() {
       isCompleted: true,
     },
   ]);
-  const [completedTasks, setCompletedTasks] = useState(0);
-
-  useEffect(() => {
-    const newCompletedTasks = todos.reduce(
-      (acc, todo) => (todo.isCompleted ? (acc = acc + 1) : acc),
-      0
-    );
-    setCompletedTasks(newCompletedTasks);
-  }, [todos]);
 
   const addTodo = (text) => {
     const newTodos = [...todos, { text, isCompleted: false }];
@@ -50,10 +41,13 @@ function App() {
     setTodos(newTodos);
   };
 
+  const completedCount = todos.filter((todo) => todo.isCompleted === true)
+    .length;
+
   return (
     <div className="App">
       <Card>
-        <ProgressBar todos={todos} completedTasks={completedTasks} />
+        <ProgressBar todos={todos} completedCount={completedCount} />
         <div
           style={{
             display: "flex",
@@ -61,6 +55,7 @@ function App() {
             marginBottom: "1rem",
           }}
         >
+          {/* use space between */}
           <span style={{ fontSize: "24px", fontWeight: "500" }}>Tasks</span>
           <Dropdown />
         </div>
