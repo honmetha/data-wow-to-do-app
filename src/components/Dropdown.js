@@ -9,13 +9,16 @@ const Dropdown = () => {
   };
 
   return (
-    <div className="dropdown">
+    <div className="dropdown" style={{ marginLeft: "auto" }}>
       <button
         onClick={handleClick}
         onBlur={() => setDisplay(false)}
         className="dropbtn"
       >
-        Dropdown
+        <div style={{ display: "flex", width: "110px" }}>
+          <span>All</span>
+          <span style={{ marginLeft: "auto" }}>v</span>
+        </div>
       </button>
       <div
         id="myDropdown"

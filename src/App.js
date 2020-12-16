@@ -36,9 +36,17 @@ function App() {
     setTodos(newTodos);
   };
 
+  const editTodo = (index) => {};
+
   const completeTodo = (index) => {
     const newTodos = [...todos];
     newTodos[index].isCompleted = !newTodos[index].isCompleted;
+    setTodos(newTodos);
+  };
+
+  const removeTodo = (index) => {
+    const newTodos = [...todos];
+    newTodos.splice(index, 1);
     setTodos(newTodos);
   };
 
@@ -46,8 +54,14 @@ function App() {
     <div className="App">
       <Card>
         <ProgressBar todos={todos} completedTasks={completedTasks} />
-        <div>
-          Tasks
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            marginBottom: "1rem",
+          }}
+        >
+          <span style={{ fontSize: "24px", fontWeight: "500" }}>Tasks</span>
           <Dropdown />
         </div>
         {todos.map((todo, index) => (
@@ -55,7 +69,9 @@ function App() {
             key={index}
             index={index}
             todo={todo}
+            editTodo={editTodo}
             completeTodo={completeTodo}
+            removeTodo={removeTodo}
           />
         ))}
         <AddTodoInput addTodo={addTodo} />

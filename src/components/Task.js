@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Task = ({ todo, index, completeTodo }) => {
+const Task = ({ todo, index, editTodo, completeTodo, removeTodo }) => {
   const [check, setCheck] = useState(todo.isCompleted);
 
   const handleChange = () => {
@@ -14,6 +14,7 @@ const Task = ({ todo, index, completeTodo }) => {
         backgroundColor: "#FFFFFF",
         borderRadius: "9999px",
         padding: "10px",
+        marginBottom: "1rem"
       }}
     >
       <label className="container">
@@ -23,7 +24,8 @@ const Task = ({ todo, index, completeTodo }) => {
       <span style={{ textDecoration: check ? "line-through" : "" }}>
         {todo.text}
       </span>{" "}
-      + ellipsis
+      <button>edit</button>
+      <button onClick={() => removeTodo(index)}>delete</button>
     </div>
   );
 };
