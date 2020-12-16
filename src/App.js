@@ -31,6 +31,11 @@ function App() {
     setCompletedTasks(newCompletedTasks);
   }, [todos]);
 
+  const addTodo = (text) => {
+    const newTodos = [...todos, { text, isCompleted: false }];
+    setTodos(newTodos);
+  };
+
   const completeTodo = (index) => {
     const newTodos = [...todos];
     newTodos[index].isCompleted = !newTodos[index].isCompleted;
@@ -53,7 +58,7 @@ function App() {
             completeTodo={completeTodo}
           />
         ))}
-        <AddTodoInput />
+        <AddTodoInput addTodo={addTodo} />
       </Card>
     </div>
   );

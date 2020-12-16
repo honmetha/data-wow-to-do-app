@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
-const AddTodoInput = () => {
+const AddTodoInput = ({ addTodo }) => {
+  const [value, setValue] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!value) return;
+    addTodo(value);
+    setValue("");
+  };
+
   return (
     <div
       style={{
@@ -9,7 +18,14 @@ const AddTodoInput = () => {
         padding: "10px",
       }}
     >
-      <input placeholder="Add to do..." />
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          value={value}
+          placeholder="Add to do..."
+          onChange={(e) => setValue(e.target.value)}
+        />
+      </form>
     </div>
   );
 };
