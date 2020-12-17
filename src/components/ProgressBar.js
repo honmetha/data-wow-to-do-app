@@ -1,7 +1,7 @@
 import React from "react";
 
 const styles = {
-  component: {
+  main: {
     backgroundColor: "#E07C7C",
     borderRadius: "20px",
     padding: "15px",
@@ -24,7 +24,7 @@ const styles = {
 const ProgressBar = ({ completedCount, todos }) => {
   const widthPercentage = (100 * completedCount) / todos.length + "%";
   return (
-    <div style={styles.component}>
+    <div style={styles.main}>
       <div style={{ fontSize: "25px", marginBottom: "0.5rem" }}>
         <strong>Progress</strong>
       </div>
