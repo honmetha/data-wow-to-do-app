@@ -1,10 +1,10 @@
 import { useState } from "react";
-import "./App.css";
+import "./App.scss";
 import Card from "./components/Card";
 import ProgressBar from "./components/ProgressBar";
+import Header from './components/Header'
 import Task from "./components/Task";
 import AddTodoInput from "./components/AddTodoInput";
-import Dropdown from "./components/Dropdown";
 
 function App() {
   const [todos, setTodos] = useState([
@@ -48,17 +48,7 @@ function App() {
     <div className="App">
       <Card>
         <ProgressBar todos={todos} completedCount={completedCount} />
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            marginBottom: "1rem",
-          }}
-        >
-          {/* use space between */}
-          <span style={{ fontSize: "24px", fontWeight: "500" }}>Tasks</span>
-          <Dropdown />
-        </div>
+        <Header />
         {todos.map((todo, index) => (
           <Task
             key={index}
