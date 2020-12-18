@@ -2,10 +2,28 @@ import React, { useState } from "react";
 import ArrowDropdownSVG from "../assets/ArrowDropdownSVG";
 import "./Header.scss";
 
+const styles = {
+  main: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginBottom: "1rem",
+  },
+  text: {
+    fontSize: "24px",
+    fontWeight: "500",
+  },
+  dropdownMain: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    width: "110px",
+  },
+};
+
 const Header = () => {
   const [display, setDisplay] = useState(false);
   const [value, setValue] = useState("All");
-  console.log("value", value);
 
   const handleClick = () => {
     setDisplay(!display);
@@ -17,37 +35,20 @@ const Header = () => {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        marginBottom: "1rem",
-      }}
-    >
-      <span style={{ fontSize: "24px", fontWeight: "500" }}>Tasks</span>
+    <div style={styles.main}>
+      <span style={styles.text}>Tasks</span>
       <div className="dropdown">
         <button
           onClick={handleClick}
           // onBlur={() => setDisplay(false)}
           className="dropbtn"
         >
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              width: "110px",
-            }}
-          >
-            <span>{value}</span>
-            <span>
-              <ArrowDropdownSVG />
-            </span>
+          <div style={styles.dropdownMain}>
+            {value}
+            <ArrowDropdownSVG />
           </div>
         </button>
         <div
-          id="myDropdown"
           className="dropdown-content"
           style={{ display: display ? "" : "none" }}
         >

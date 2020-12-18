@@ -1,4 +1,5 @@
 import React from "react";
+import "./Task.scss";
 import EllipsisSVG from "../assets/EllipsisSVG";
 
 const styles = {
@@ -7,6 +8,8 @@ const styles = {
     borderRadius: "9999px",
     padding: "10px",
     marginBottom: "1rem",
+    display: "flex",
+    alignItems: "center",
   },
 };
 
@@ -23,10 +26,10 @@ const Task = ({ todo, index, editTodo, completeTodo, removeTodo }) => {
       </label>
       <span style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}>
         {todo.text}
-      </span>{" "}
+      </span>
       <button>edit</button>
       <button onClick={() => removeTodo(index)}>delete</button>
-      <span>
+      <span style={{ marginLeft: "auto" }}>
         <EllipsisSVG />
       </span>
     </div>
