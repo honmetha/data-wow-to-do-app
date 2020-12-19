@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Task.scss";
 import EllipsisSVG from "../assets/EllipsisSVG";
 
@@ -14,6 +14,12 @@ const styles = {
 };
 
 const Task = ({ todo, index, editTodo, completeTodo, removeTodo }) => {
+  const [display, setDisplay] = useState(false);
+
+  const handleClick = () => {
+    setDisplay(!display);
+  };
+
   return (
     <div style={styles.main}>
       <label className="container">
@@ -27,10 +33,19 @@ const Task = ({ todo, index, editTodo, completeTodo, removeTodo }) => {
       <span style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}>
         {todo.text}
       </span>
-      <button>edit</button>
-      <button onClick={() => removeTodo(index)}>delete</button>
-      <span style={{ marginLeft: "auto" }}>
+      <span
+        onClick={handleClick}
+        style={{ marginLeft: "auto" }}
+        className="dropdown"
+      >
         <EllipsisSVG />
+        <div
+          className="dropdown-content"
+          style={{ display: display ? "" : "none" }}
+        >
+          <div onClick={() => editTodo(index)}>edit</div>
+          <div onClick={() => removeTodo(index)}>delete</div>
+        </div>
       </span>
     </div>
   );
