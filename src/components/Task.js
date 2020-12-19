@@ -26,16 +26,16 @@ const Task = ({ todo, index, editTodo, completeTodo, removeTodo }) => {
         <input
           type="checkbox"
           onChange={() => completeTodo(index)}
-          checked={todo.isCompleted}
+          checked={todo.completed}
         />
         <span className="checkmark"></span>
       </label>
-      <span style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}>
-        {todo.text}
+      <span style={{ textDecoration: todo.completed ? "line-through" : "" }}>
+        {todo.title}
       </span>
       <span
         onClick={handleClick}
-        style={{ marginLeft: "auto" }}
+        style={{ marginLeft: "auto", display: "flex", alignItems: "center" }}
         className="dropdown"
       >
         <EllipsisSVG />

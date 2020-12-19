@@ -1,29 +1,26 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.scss";
+import Axios from "axios";
 import Card from "./components/Card";
 import ProgressBar from "./components/ProgressBar";
-import Header from './components/Header'
+import Header from "./components/Header";
 import Task from "./components/Task";
 import AddTodoInput from "./components/AddTodoInput";
 
 function App() {
-  const [todos, setTodos] = useState([
-    {
-      text: "Learn about React",
-      isCompleted: false,
-    },
-    {
-      text: "Meet friend for lunch",
-      isCompleted: true,
-    },
-    {
-      text: "Build really cool todo app",
-      isCompleted: true,
-    },
-  ]);
+  const [todos, setTodos] = useState([]);
 
-  const addTodo = (text) => {
-    const newTodos = [...todos, { text, isCompleted: false }];
+  useEffect(() => {
+    const fetchTodos = () => {
+      Axios.get("http://localhost:3001/todos").then((res) =>
+        setTodos(res.data)
+      );
+    };
+    fetchTodos();
+  }, []);
+
+  const addTodo = (title) => {
+    const newTodos = [...todos, { title, completed: false }];
     setTodos(newTodos);
   };
 
@@ -31,18 +28,21 @@ function App() {
 
   const completeTodo = (index) => {
     const newTodos = [...todos];
-    newTodos[index].isCompleted = !newTodos[index].isCompleted;
+    Axios.patch(`http://localhost:3001/todos/${todos[index].id}`, {
+      completed: !newTodos[index].completed,
+    });
+    newTodos[index].completed = !newTodos[index].completed;
     setTodos(newTodos);
   };
 
   const removeTodo = (index) => {
+    Axios.delete(`http://localhost:3001/todos/${todos[index].id}`);
     const newTodos = [...todos];
     newTodos.splice(index, 1);
     setTodos(newTodos);
   };
 
-  const completedCount = todos.filter((todo) => todo.isCompleted === true)
-    .length;
+  const completedCount = todos.filter((todo) => todo.completed === true).length;
 
   return (
     <div className="App">
