@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/data-wow-to-do-app/static/css/main.aa01dbb3.chunk.css",
+    "main.js": "/data-wow-to-do-app/static/js/main.64bd90ee.chunk.js",
+    "main.js.map": "/data-wow-to-do-app/static/js/main.64bd90ee.chunk.js.map",
+    "runtime-main.js": "/data-wow-to-do-app/static/js/runtime-main.01ab0e47.js",
+    "runtime-main.js.map": "/data-wow-to-do-app/static/js/runtime-main.01ab0e47.js.map",
+    "static/js/2.0c9b3c87.chunk.js": "/data-wow-to-do-app/static/js/2.0c9b3c87.chunk.js",
+    "static/js/2.0c9b3c87.chunk.js.map": "/data-wow-to-do-app/static/js/2.0c9b3c87.chunk.js.map",
+    "static/js/3.45bef1a9.chunk.js": "/data-wow-to-do-app/static/js/3.45bef1a9.chunk.js",
+    "static/js/3.45bef1a9.chunk.js.map": "/data-wow-to-do-app/static/js/3.45bef1a9.chunk.js.map",
+    "index.html": "/data-wow-to-do-app/index.html",
+    "static/css/main.aa01dbb3.chunk.css.map": "/data-wow-to-do-app/static/css/main.aa01dbb3.chunk.css.map",
+    "static/js/2.0c9b3c87.chunk.js.LICENSE.txt": "/data-wow-to-do-app/static/js/2.0c9b3c87.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.01ab0e47.js",
+    "static/js/2.0c9b3c87.chunk.js",
+    "static/css/main.aa01dbb3.chunk.css",
+    "static/js/main.64bd90ee.chunk.js"
+  ]
+}
