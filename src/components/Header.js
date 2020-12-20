@@ -21,7 +21,7 @@ const styles = {
   },
 };
 
-const Header = () => {
+const Header = ({ filterTodos }) => {
   const [display, setDisplay] = useState(false);
   const [value, setValue] = useState("All");
 
@@ -30,6 +30,7 @@ const Header = () => {
   };
 
   const handleDropdownClick = (option) => {
+    filterTodos(option);
     setValue(option);
     setDisplay(!display);
   };
