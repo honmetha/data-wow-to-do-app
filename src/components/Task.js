@@ -41,7 +41,6 @@ const Task = ({ todo, index, editTodo, completeTodo, removeTodo }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     editTodo(index, value);
-    setValue("");
     setIsEditing(false);
   };
 
